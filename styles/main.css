@@ -33,21 +33,40 @@ body {
 
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 24px;
+  color: rgb(55, 98, 108);
 
 }
 
 .player__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 60px;
   aspect-ratio: 1;
   border: none;
   outline: none;
   border-radius: 50%;
+  background-color: transparent;
+  color: rgb(55, 98, 108);
 }
 
 .player__button:hover {
-  background-color: rgba(0, 0, 0, 0.395);
+  color: rgb(50, 79, 101);
 }
 
 .player__button:active {
-  background-color: rgba(0, 0, 0, 0.636);
+  color: rgb(43, 67, 86);
 }
+
+.icon {
+  width: 45px;  /* или любой нужный размер */
+  aspect-ratio: 1;
+  fill: currentColor; /* чтобы иконка красилась в цвет текста кнопки */
+}
+
+/* Скрываем по умолчанию */
+.icon-pause { display: none; }
+
+/* Показываем нужную при наличии класса .is-playing */
+.is-playing .icon-play { display: none; }
+.is-playing .icon-pause { display: block; }
