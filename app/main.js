@@ -3,6 +3,8 @@ const startPlay = document.querySelector('.button-play')
 const spanAudioDuration = document.querySelector('.end-time')
 const spanAudioCurrTime = document.querySelector('.current-time')
 const progressBar = document.querySelector('.progress-bar')
+const volumeBar = document.querySelector('.volume-bar')
+const dropZone = document.querySelector('.drop-zone')
 
 startPlay.addEventListener('click', () => {
   if (audio.paused) {
@@ -22,6 +24,8 @@ audio.addEventListener('loadedmetadata', () => {
 
   progressBar.max = audioDuration
 
+  volumeBar.value = audio.volume
+
 })
 
 audio.addEventListener('timeupdate', () => {
@@ -34,6 +38,26 @@ audio.addEventListener('timeupdate', () => {
 
 progressBar.addEventListener('input', () => {
 audio.currentTime = progressBar.value
+})
+
+volumeBar.addEventListener('input', () => {
+  audio.volume = volumeBar.value
+})
+
+dropZone.addEventListener('dragover', (event) => {
+  event.preventDefault()
+  dropZone.classList.add('hovered')
+})
+dropZone.addEventListener('dragleave', (event) => {
+  dropZone.classList.remove('hovered')
+})
+
+dropZone.addEventListener('drop', (event) => {
+  event.preventDefault()
+  dropZone.classList.remove('hovered')
+  console.log(event.dataTransfer.files[0])
+audio.src = URL.createObjectURL(event.dataTransfer.files[0])
+  
 })
 
 
