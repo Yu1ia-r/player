@@ -1,13 +1,32 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #717a85;
+  --bg-accent-color: rgba(75, 105, 138, 0.26);
+--accent-color: rgb(55, 98, 108);
+--accent-hover-color: rgb(50, 79, 101);
+--accent-active-color: rgb(43, 67, 86);
+}
+
 body {
+  background-color: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+body.dark-mode {
+--bg-color: #1d1d20;
+ --text-color: #acacac;
+  --bg-accent-color: rgba(75, 105, 138, 0.26);
+--accent-color: rgb(55, 98, 108);
+--accent-hover-color: rgb(50, 79, 101);
+--accent-active-color: rgb(43, 67, 86);
+}
+
 .container {
   width: 100%;
   height: 100%;
-  max-width: 600px;
+  max-width: 750px;
   display: flex;
   gap: 30px;
   justify-content: space-between;
@@ -16,14 +35,33 @@ body {
 
 }
 
+
+.moon {
+  display: none;
+}
+
+body.dark-mode .sun {
+  display: none;
+}
+
+body.dark-mode .moon {
+  display: block;
+  color: var(--text-color);
+}
+
 .add-song {
+  
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100px;
+  padding: 15px;
   border-radius: 10px;
-  background-color: rgba(75, 105, 138, 0.26);
+  margin-bottom: 20px;
+  background-color: var(--bg-accent-color);
+  color: var(--text-color);
+
 }
 
 .add-song.hovered {
@@ -39,11 +77,11 @@ body {
   padding: 30px;
   padding-bottom: 50px;
   border-radius: 10px;
-  background-color: rgba(75, 105, 138, 0.26);
+  background-color: var(--bg-accent-color);
 }
 
 .player__img {
-  width: 60vh;
+  width: 45vh;
   margin-bottom: 20px;
   border-radius: 10px;
 }
@@ -79,7 +117,7 @@ body {
   margin-bottom: 20px;
 
   font-size: 24px;
-  color: rgb(55, 98, 108);
+  color: var(--accent-color);
 
 }
 
@@ -91,7 +129,7 @@ body {
 .volume svg {
   width: 50px;
   aspect-ratio: 1;
-  color: rgb(55, 98, 108);
+  color: var(--accent-color);
 
 }
 
@@ -105,15 +143,15 @@ body {
   outline: none;
   border-radius: 50%;
   background-color: transparent;
-  color: rgb(55, 98, 108);
+  color: var(--accent-color);
 }
 
 .player__button:hover {
-  color: rgb(50, 79, 101);
+  color: var(--accent-hover-color);
 }
 
 .player__button:active {
-  color: rgb(43, 67, 86);
+  color: var(--accent-active-color);
 }
 
 .icon {
@@ -146,7 +184,7 @@ input[type="range"] {
   width: 100%;
   /* Ширина слайдера */
   background: transparent;
-  /* Убираем фон, чтобы не мешал дорожке */
+  
 }
 
 input[type="range"]:focus {
@@ -155,17 +193,19 @@ input[type="range"]:focus {
 }
 
 
+
+
 /* Chrome, Safari, Edge */
 input[type="range"]::-webkit-slider-runnable-track {
   height: 8px;
-  background: white;
+  background: var(--text-color);
   border-radius: 4px;
 }
 
 /* Firefox */
 input[type="range"]::-moz-range-track {
   height: 8px;
-  background: white;
+  background: var(--text-color);
   border-radius: 4px;
 }
 

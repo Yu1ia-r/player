@@ -5,6 +5,8 @@ const spanAudioCurrTime = document.querySelector('.current-time')
 const progressBar = document.querySelector('.progress-bar')
 const volumeBar = document.querySelector('.volume-bar')
 const dropZone = document.querySelector('.drop-zone')
+const changeThemeButton = document.querySelector('.change-theme')
+
 
 startPlay.addEventListener('click', () => {
   if (audio.paused) {
@@ -60,7 +62,10 @@ audio.src = URL.createObjectURL(event.dataTransfer.files[0])
   
 })
 
-
+changeThemeButton.addEventListener('click', () => {
+ document.body.classList.toggle('dark-mode')
+ 
+})
 
 
 
